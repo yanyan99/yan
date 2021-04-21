@@ -271,7 +271,7 @@ int main() {
 	{
 		cout << arr[i] << endl;
 	}
-	//释放数组 delete 后加 []
+	//释放数组 delete 后要加 []
 	delete[] arr;
 
 	system("pause");
@@ -467,8 +467,8 @@ int main() {
 
 	//不能返回局部变量的引用
 	int& ref = test01();
-	cout << "ref = " << ref << endl;
-	cout << "ref = " << ref << endl;
+	cout << "ref = " << ref << endl;//编译器保存一次
+	cout << "ref = " << ref << endl;//错误
 
 	//如果函数做左值，那么必须返回引用
 	int& ref2 = test02();
@@ -798,8 +798,8 @@ void func2(int a)
 int main() {
 	
 	int a = 10;
-	func(a); //调用无const
-	func(10);//调用有const
+	func(a); //调用无const，a是变量
+	func(10);//调用有const，编译器 const int& a=10,临时变量int temp=10,const int & a=temp
 
 
 	//func2(10); //碰到默认参数产生歧义，需要避免
@@ -4267,7 +4267,7 @@ int main() {
 **示例：**
 
 ```C++
-//抽象制作饮品
+//抽象���作饮品
 class AbstractDrinking {
 public:
 	//烧水
