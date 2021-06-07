@@ -1,4 +1,4 @@
-cl /d1 reportSingleClass类名 文件名
+cl /d1 reportSingleClassLayout类名 文件名
 
 - 空类的大小为1字节
 - 一个类中，虚函数本身、成员函数（包括静态与非静态）和静态数据成员都是不占用类对象的存储空间。
